@@ -33,7 +33,7 @@ const init = async () => {
             console.log(`Running: ${formattedFraction}`);
 
             try {
-                const createdSession = await fetch("https://www.duolingo.com/2017-06-30/sessions", {
+                const createdSession = await fetch("https://www.duolingo.com/2016-06-30/sessions", {
                     headers,
                     method: 'POST',
                     body: JSON.stringify(sessionBody),
@@ -44,7 +44,7 @@ const init = async () => {
 
                 console.log(`Created Fake Duolingo Practice Session: ${createdSession.id}`);
 
-                const rewards = await fetch(`https://www.duolingo.com/2017-06-30/sessions/${createdSession.id}`, {
+                const rewards = await fetch(`https://www.duolingo.com/2016-06-30/sessions/${createdSession.id}`, {
                     headers,
                     method: 'PUT',
                     body: JSON.stringify({
