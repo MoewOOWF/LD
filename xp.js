@@ -68,7 +68,14 @@ const init = async () => {
                         sessionStartExperiments: [],
                         showBestTranslationInGradingRibbon: true,
                         progressUpdates: [],
-                        xpPromised: 201,
+                        metadata: {
+                            id: createdSession.id,
+                            type: "unit_test",
+                            language: "en",
+                            from_language: "vi"
+                        },
+                        skill_tree_id: "72f8003cc36227580a7b75ea1d3f4f4a",
+                        isV2: false,
                     }),
                 }).then(res => {
                     if (!res.ok) {
