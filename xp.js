@@ -66,9 +66,9 @@ const init = async () => {
                         ...createdSession,
                         beginner: false,
                         challengeTimeTakenCutoff: 60000,
-                        startTime: (Date.now() - 60000) / 1000,
+                        startTime: Math.floor(Date.now() / 1000),
                         enableBonusPoints: false,
-                        endTime: Date.now() / 1000,
+                        endTime: Math.floor(Date.now() / 1000) + 60, // Set end time to 60 seconds after start
                         failed: false,
                         heartsLeft: 0,
                         hasBoost: true,
