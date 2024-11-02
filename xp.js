@@ -15,17 +15,17 @@ const init = async () => {
         console.log('Fetched User Languages:', userLanguages);
 
         const sessionBody = {
-            challengeTypes: ["listen"],
-            fromLanguage: userLanguages.fromLanguage,
+            challengeTypes: ["listen"], // Có thể thay đổi nếu bạn muốn sử dụng các loại khác
+            fromLanguage: userLanguages.fromLanguage || "vi", // Sử dụng ngôn ngữ mặc định từ JSON
+            learningLanguage: userLanguages.learningLanguage || "en", // Sử dụng ngôn ngữ học từ JSON
             isFinalLevel: false,
-            isV2: true,
+            isV2: false, // Chỉnh lại theo JSON
             juicy: true,
-            learningLanguage: userLanguages.learningLanguage,
             levelIndex: 1,
             shakeToReportEnabled: true,
-            skillId: "20017c47905904a4bbdfa3ca1b4bd85e",
+            skillId: "63f90eb7cf915bcc78bef8efe4c2a6ca", // Sử dụng skill ID từ JSON
             smartTipsVersion: 2,
-            type: "LEGENDARY_LEVEL",
+            type: "UNIT_TEST", // Chỉnh lại theo JSON
         };
 
         for (let i = 0; i < lessonsToComplete; i++) {
@@ -50,9 +50,9 @@ const init = async () => {
                     body: JSON.stringify({
                         ...createdSession,
                         beginner: false,
-                        challengeTimeTakenCutoff: 6000,
+                        challengeTimeTakenCutoff: 60000, // Sử dụng giá trị từ JSON
                         startTime: (Date.now() - 60000) / 1000,
-                        enableBonusPoints: true,
+                        enableBonusPoints: false, // Chỉnh lại theo JSON
                         endTime: Date.now() / 1000,
                         failed: false,
                         heartsLeft: 0,
