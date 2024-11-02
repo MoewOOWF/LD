@@ -15,17 +15,32 @@ const init = async () => {
         console.log('Fetched User Languages:', userLanguages);
 
         const sessionBody = {
-            challengeTypes: ["listen"], // Có thể thay đổi nếu bạn muốn sử dụng các loại khác
-            fromLanguage: userLanguages.fromLanguage || "vi", // Sử dụng ngôn ngữ mặc định từ JSON
-            learningLanguage: userLanguages.learningLanguage || "en", // Sử dụng ngôn ngữ học từ JSON
+            challengeTypes: [
+                "assist", "characterIntro", "characterMatch", "characterPuzzle",
+                "characterSelect", "characterTrace", "characterWrite", "completeReverseTranslation",
+                "definition", "dialogue", "extendedMatch", "extendedListenMatch",
+                "form", "freeResponse", "gapFill", "judge", "listen", "listenComplete",
+                "listenMatch", "match", "name", "listenComprehension", "listenIsolation",
+                "listenSpeak", "listenTap", "orderTapComplete", "partialListen",
+                "partialReverseTranslate", "patternTapComplete", "radioBinary",
+                "radioImageSelect", "radioListenMatch", "radioListenRecognize",
+                "radioSelect", "readComprehension", "reverseAssist", "sameDifferent",
+                "select", "selectPronunciation", "selectTranscription", "svgPuzzle",
+                "syllableTap", "syllableListenTap", "speak", "tapCloze",
+                "tapClozeTable", "tapComplete", "tapCompleteTable", "tapDescribe",
+                "translate", "transliterate", "transliterationAssist", "typeCloze",
+                "typeClozeTable", "typeComplete", "typeCompleteTable", "writeComprehension"
+            ],
+            fromLanguage: userLanguages.fromLanguage || "vi",
+            learningLanguage: userLanguages.learningLanguage || "en",
             isFinalLevel: false,
-            isV2: false, // Chỉnh lại theo JSON
+            isV2: false,
             juicy: true,
             levelIndex: 1,
             shakeToReportEnabled: true,
-            skillId: "63f90eb7cf915bcc78bef8efe4c2a6ca", // Sử dụng skill ID từ JSON
+            skillId: "63f90eb7cf915bcc78bef8efe4c2a6ca",
             smartTipsVersion: 2,
-            type: "UNIT_TEST", // Chỉnh lại theo JSON
+            type: "UNIT_TEST",
         };
 
         for (let i = 0; i < lessonsToComplete; i++) {
@@ -50,9 +65,9 @@ const init = async () => {
                     body: JSON.stringify({
                         ...createdSession,
                         beginner: false,
-                        challengeTimeTakenCutoff: 60000, // Sử dụng giá trị từ JSON
+                        challengeTimeTakenCutoff: 60000,
                         startTime: (Date.now() - 60000) / 1000,
-                        enableBonusPoints: false, // Chỉnh lại theo JSON
+                        enableBonusPoints: false,
                         endTime: Date.now() / 1000,
                         failed: false,
                         heartsLeft: 0,
