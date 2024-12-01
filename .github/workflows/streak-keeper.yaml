@@ -22,6 +22,6 @@ jobs:
 
       - run: node xp.js
         env:
-          lessonsToComplete: 10000
+          lessonsToComplete: 100000
           token: ${{ secrets.TOKEN }}
           userId: ${{ secrets.USER_ID }}
