@@ -50,7 +50,7 @@ const init = async () => {
                     body: JSON.stringify({
                         ...createdSession,
                         beginner: false,
-                        challengeTimeTakenCutoff: 0,
+                        challengeTimeTakenCutoff: 6000,
                         startTime: (Date.now() - 60000) / 1000,
                         enableBonusPoints: true,
                         endTime: Date.now() / 1000,
