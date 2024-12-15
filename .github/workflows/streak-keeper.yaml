@@ -1,9 +1,10 @@
-name: 'Streak Keeper (Never lose your streak.)'
-run-name: 'Your study script is running! Click me to see its progress.'
+name: 'Auto Farming XP'
+run-name: 'Đang chạy XP nè cha! Click vào mà xem'
 
 on:
   schedule:
-    - cron: '0 0 * * *' 
+    - cron: '0 9 * * *'  
+    - cron: '0 21 * * *' 
   workflow_dispatch:
 
 jobs:
@@ -22,6 +23,6 @@ jobs:
 
       - run: node xp.js
         env:
-          lessonsToComplete: 1 
+          lessonsToComplete: 10000
           token: ${{ secrets.TOKEN }}
           userId: ${{ secrets.USER_ID }}
