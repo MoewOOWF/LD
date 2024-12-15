@@ -1,7 +1,7 @@
 {
-  "name": "duolingohack",
+  "name": "Buff XP Duolingo",
   "version": "1.0.0",
-  "description": "A hack for Duolingo to spoof lessons for XP.",
+  "description": "Buff Free XP",
   "main": "grinder.js",
   "scripts": {
     "xp": "node xp.js",
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cole-bauml/duolingo-xp-hack"
+    "url": "https://github.com/MoewOOWF"
   },
-  "author": "Cole Bauml",
+  "author": "MeowWoof",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^3.3.2"
