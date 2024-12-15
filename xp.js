@@ -1,4 +1,3 @@
-
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const { getUserLanguages, headers, removeQuotes } = require('./helper.js');
 
@@ -16,24 +15,17 @@ const init = async () => {
         console.log('Fetched User Languages:', userLanguages);
 
         const sessionBody = {
-            challengeTypes: [
-                "assist", "characterIntro", "characterMatch", "characterPuzzle", "characterSelect",
-                "characterTrace", "characterWrite", "completeReverseTranslation", "definition", "dialogue",
-                "extendedMatch", "extendedListenMatch", "form", "freeResponse", "gapFill", "judge", "listen",
-                "listenComplete", "listenMatch", "match", "name", "listenComprehension", "listenIsolation",
-                "listenSpeak", "listenTap", "orderTapComplete", "partialListen", "partialReverseTranslate",
-                "patternTapComplete", "radioBinary", "radioImageSelect", "radioListenMatch",
-                "radioListenRecognize", "radioSelect", "readComprehension", "reverseAssist", "sameDifferent",
-                "select", "selectPronunciation", "selectTranscription", "svgPuzzle", "syllableTap",
-                "syllableListenTap", "speak", "tapCloze", "tapClozeTable", "tapComplete", "tapCompleteTable",
-                "tapDescribe", "translate", "transliterate", "transliterationAssist", "typeCloze",
-                "typeClozeTable", "typeComplete", "typeCompleteTable", "writeComprehension"
-            ],
+            challengeTypes: ["listen"],
             fromLanguage: userLanguages.fromLanguage,
-            learningLanguage: userLanguages.learningLanguage,
             isFinalLevel: false,
-            skillIds: ["63f90eb7cf915bcc78bef8efe4c2a6ca"],
-            type: "UNIT_TEST"
+            isV2: true,
+            juicy: true,
+            learningLanguage: userLanguages.learningLanguage,
+            levelIndex: 1,
+            shakeToReportEnabled: true,
+            skillId: "20017c47905904a4bbdfa3ca1b4bd85e",
+            smartTipsVersion: 2,
+            type: "LEGENDARY_LEVEL",
         };
 
         for (let i = 0; i < lessonsToComplete; i++) {
@@ -56,27 +48,22 @@ const init = async () => {
                     headers,
                     method: 'PUT',
                     body: JSON.stringify({
-                        id: createdSession.id,
-                        fromLanguage: "vi",
-                        learningLanguage: "en",
-                        type: "UNIT_TEST",
-                        challengeTimeTakenCutoff: 60000,
-                        enableBonusPoints: false,
-                        endTime: Math.floor(Date.now() / 1000),
-                        startTime: Math.floor((Date.now() - 60000) / 1000),
+                        ...createdSession,
+                        beginner: false,
+                        challengeTimeTakenCutoff: 6000,
+                        startTime: (Date.now() - 60000) / 1000,
+                        enableBonusPoints: true,
+                        endTime: Date.now() / 1000,
+                        failed: false,
+                        heartsLeft: 0,
                         hasBoost: true,
+                        maxInLessonStreak: 15,
+                        shouldLearnThings: true,
+                        progressUpdates: [],
                         sessionExperimentRecord: [],
                         sessionStartExperiments: [],
                         showBestTranslationInGradingRibbon: true,
-                        progressUpdates: [],
-                        metadata: {
-                            id: createdSession.id,
-                            type: "unit_test",
-                            language: "en",
-                            from_language: "vi"
-                        },
-                        skill_tree_id: "72f8003cc36227580a7b75ea1d3f4f4a",
-                        isV2: false,
+                        xpPromised: 201,
                     }),
                 }).then(res => {
                     if (!res.ok) {
