@@ -1,4 +1,4 @@
-name: 'Get XP'
+name: 'Boost XP'
 run-name: Your hack is running! Click me to see it's progress.
 
 on:
@@ -7,7 +7,7 @@ on:
       lessonsToComplete:
         description: 'Amount of fake lessons to complete. (Each give 200 XP)'
         required: true
-        default: 5
+        default: 5000
 
 jobs:
   check-bats-version:
