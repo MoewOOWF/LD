@@ -1,4 +1,4 @@
-const url = "https://www.duolingo.com/2017-06-30/users/1647733222/rewards/CAPSTONE_COMPLETION-6a459295_f41c_38d9_91ba_ddd5f57d014d-1-GEMS";
+const url = "https://www.duolingo.com/2017-06-30/users/1647733222/rewards/CAPSTONE_COMPLETION-6a459295_f41c_38d9_91ba_ddd5f57d014d-2-GEMS";
 
 const payload = {
     amount: 0,
