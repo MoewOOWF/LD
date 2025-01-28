@@ -1,0 +1,32 @@
+name: 'Gems Farming'
+run-name: Your hack is running! Click me to see its progress.
+
+on:
+  workflow_dispatch:
+    inputs:
+      lessonsToComplete:
+        description: 'Amount of fake lessons to complete. (Each gives 200 XP)'
+        required: true
+        default: 5000
+
+jobs:
+  gems-farming:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install axios
+
+      - name: Run gems script
+        run: node gems.js
+        env:
+          JWT_TOKEN: ${{ secrets.TOKEN }}  # Sử dụng token từ GitHub Secrets
